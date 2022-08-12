@@ -1,0 +1,50 @@
+[
+  {
+    "nombre": "Samsung",
+    "precio": 25000,
+    "id": 1,
+    "img": "https://images.samsung.com/is/image/samsung/p6pim/ar/lf24t350fhlczb/gallery/ar-t35f-388813-lf24t350fhlczb-456992025?$650_519_PNG$"
+  },
+  {
+    "nombre": "Teclado",
+    "precio": 5000,
+    "id": 2,
+    "img": "https://i0.wp.com/noaweb.com.ar/wp-content/uploads/2019/12/157376928234df6382dd9d0cfb38bb411628c1a428.png?fit=729%2C729&ssl=1"
+  },
+  {
+    "nombre": "Rizen 5",
+    "precio": 37000,
+    "id": 3,
+    "img": "https://www.qloud.ar/SITES/IMG/gaming-point-06-2021/221_31-01-2022-03-01-40-d_nq_np_655646-mec47356329503_092021-o_ccexpress.png"
+  },
+  {
+    "nombre": "PlayStation 4",
+    "precio": 27000,
+    "id": 4,
+    "img": "https://www.pngall.com/wp-content/uploads/5/PlayStation-5-PNG-Free-Download.png"
+  },
+  {
+    "nombre": "WebCam",
+    "precio": 7500,
+    "id": 5,
+    "img": "https://resource.logitech.com/w_800,c_lpad,ar_1:1,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/products/logitech/webcams/c925e-business-webcam/c925e-webcam37.png?v=1"
+  },
+  {
+    "nombre": "Pc Gamer",
+    "precio": 55000,
+    "id": 6,
+    "img": "https://assets.spartangeek.com/cc/_AUTOxAUTO_crop_center-center_none/37180/Balam-Rush-Dragonfly-Pink-1.webp"
+  },
+  {
+    "nombre": "Celular",
+    "precio": 28500,
+    "id": 7,
+    "img": " https://cbff-teco-strapi-cms-pro.s3.amazonaws.com/Moto_G71_Frente_min_544a1b3434.png"
+  },
+  {
+    "nombre": "Auricular",
+    "precio": 13500,
+    "id": 8,
+    "img": "https://www.gamer24hs.com/IMGS/1606485816.png"
+  }
+]
