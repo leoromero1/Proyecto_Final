@@ -41,7 +41,6 @@ cargarJson(() => {
   botonesClick.forEach((btns) => {
     btns.addEventListener("click", seleccionarProductos);
   });
-
   /* creo una función "buscador de productos" adentro de cargarJson, porque nose porqué si la dejo afuera no me la reconoce*/
   function buscador() {
     const filtro = document.querySelectorAll(".filtro");
@@ -100,7 +99,6 @@ function agregarProductosAlCarrito(productosSeleccionados) {
   //con un for recorro el carrito para que no se me pinten dos elementos del mismo producto
   for (let i = 0; i < carrito.length; i++) {
     carrito[i].title === productosSeleccionados.title ? cantidad : null;
-
   }
 
   //pusheo al carrito los productos que se van seleccionando.
@@ -148,7 +146,7 @@ function carritoTotal() {
     const precio = Number(item.precio.replace("$", ""));
     Total = Total + precio * item.cantidad;
   });
-  Total === 0 ? totalCompra.innerHTML = `Agregar Productos al<i class='bx bxs-cart' style='color:#01f603'></i> `://le agrego un texto cuando el carrito esta vacio
+  Total === 0 ? totalCompra.innerHTML = `<i class='bx bxs-cart' style='color:#01f603'></i> VACIO`://le agrego un texto cuando el carrito esta vacio
     totalCompra.innerHTML = `Total a pagar $${Total}`;
     contador.innerText = carrito.length;
   guardarDatos();
@@ -197,7 +195,6 @@ function guardarDatos() {
 
 function simularCompra() {
   compraSimulada.addEventListener("click", () => {
-    console.log(compraSimulada);
     console.log('click');
   })
 }
