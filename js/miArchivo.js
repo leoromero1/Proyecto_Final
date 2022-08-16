@@ -4,8 +4,9 @@ const card = document.querySelector("#cards");
 const tabla = document.querySelector(".tbody");
 const inputBuscar = document.querySelector("#buscar");
 const filtro = document.querySelectorAll(".filtro");
-const contador = document.querySelector("#contador")
-const compraSimulada = document.querySelector(".botones-m")
+const contador = document.querySelector("#contador");
+const compraSimulada = document.querySelector(".simularCompra");
+const vaciarCarrito = document.querySelector(".vaciarCarrito");
 let carrito = [];
 let botonesClick = [];
 
@@ -146,9 +147,9 @@ function carritoTotal() {
     const precio = Number(item.precio.replace("$", ""));
     Total = Total + precio * item.cantidad;
   });
-  Total === 0 ? totalCompra.innerHTML = `<i class='bx bxs-cart' style='color:#01f603'></i> VACIO`://le agrego un texto cuando el carrito esta vacio
+  Total === 0 ? totalCompra.innerHTML = `<i class='bx bxs-cart' style='color:#01f603'></i> VACIO` ://le agrego un texto cuando el carrito esta vacio
     totalCompra.innerHTML = `Total a pagar $${Total}`;
-    contador.innerText = carrito.length;
+  contador.innerText = carrito.length;
   guardarDatos();
 }
 
@@ -188,17 +189,24 @@ function sumaCantidad(e) {
   });
 }
 
+function limpiarCarrito() {
+  vaciarCarrito.addEventListener('click', () => {
+
+    carrito = [];
+    agregarCarrito()
+    
+  })
+}
+limpiarCarrito()
+
+
 //guardo los datos de mi carrito en el localStorage
 function guardarDatos() {
   localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
-function simularCompra() {
-  compraSimulada.addEventListener("click", () => {
-    console.log('click');
-  })
-}
-simularCompra()
+
+
 window.onload = function () {
   const storage = JSON.parse(localStorage.getItem("carrito"));
   storage ? (carrito = storage) : "";
