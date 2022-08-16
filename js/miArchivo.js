@@ -53,6 +53,7 @@ cargarJson(() => {
         expReg.test(valor.innerText)
           ? valor.classList.remove("ocultar")
           : valor.classList.add("ocultar");
+          
       }
     });
   }
@@ -94,9 +95,14 @@ function agregarProductosAlCarrito(productosSeleccionados) {
     showConfirmButton: false,
     timer: 1500,
   });
+
   //con un for recorro el carrito para que no se me pinten dos elementos del mismo producto
   for (let i = 0; i < carrito.length; i++) {
-    carrito[i].title === productosSeleccionados.title ? cantidad : null;
+    if(carrito[i].title === productosSeleccionados.title){
+      carrito[i].cantidad;
+      return null
+    }
+    
   }
 
   //pusheo al carrito los productos que se van seleccionando.
@@ -123,8 +129,8 @@ function agregarCarrito() {
               <input type="number" min="1" value=${item.cantidad} class="input__elemento">
               <button class="delete btn btn-danger">x</button>
             </td>
-
     `;
+   
     tr.innerHTML = content;
     tabla.append(tr);
 
