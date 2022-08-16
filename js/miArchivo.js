@@ -7,6 +7,7 @@ const filtro = document.querySelectorAll(".filtro");
 const contador = document.querySelector("#contador");
 const compraSimulada = document.querySelector(".simularCompra");
 const vaciarCarrito = document.querySelector(".vaciarCarrito");
+const btnActiv = document.querySelector('.botones-m');
 let carrito = [];
 let botonesClick = [];
 
@@ -53,7 +54,7 @@ cargarJson(() => {
         expReg.test(valor.innerText)
           ? valor.classList.remove("ocultar")
           : valor.classList.add("ocultar");
-          
+
       }
     });
   }
@@ -85,6 +86,12 @@ function seleccionarProductos(e) {
   agregarProductosAlCarrito(productosSeleccionados); //llamo a una función y le mando como parámetro el objeto creado
 }
 
+function activarBtn() {
+  if (carrito.lenght === 0) {
+    btnActiv = disabale = true
+  }
+}
+
 //desde esta función tiro una alerta cada vez que se agrega un producto al carrito y hago que no se pinte más de una vez un producto ya seleccionado.
 function agregarProductosAlCarrito(productosSeleccionados) {
   //desde SweetAlert tiro una alerta cuando se agrega un producto al carrito
@@ -98,11 +105,11 @@ function agregarProductosAlCarrito(productosSeleccionados) {
 
   //con un for recorro el carrito para que no se me pinten dos elementos del mismo producto
   for (let i = 0; i < carrito.length; i++) {
-    if(carrito[i].title === productosSeleccionados.title){
+    if (carrito[i].title === productosSeleccionados.title) {
       carrito[i].cantidad;
       return null
     }
-    
+
   }
 
   //pusheo al carrito los productos que se van seleccionando.
@@ -130,7 +137,7 @@ function agregarCarrito() {
               <button class="delete btn btn-danger">x</button>
             </td>
     `;
-   
+
     tr.innerHTML = content;
     tabla.append(tr);
 
@@ -150,12 +157,14 @@ function carritoTotal() {
     const precio = Number(item.precio.replace("$", ""));
     Total = Total + precio * item.cantidad;
   });
-  Total === 0 ? totalCompra.innerHTML = `<i class='bx bxs-cart' style='color:#01f603'></i> VACIO` ://le agrego un texto cuando el carrito esta vacio
+  //mantengo desactivado el boton hasta que se agregue algun producto
+  Total === 0 ? document.querySelector("#activar").disabled = true : document.querySelector("#activar").disabled = false
+  //le agrego un texto cuando el carrito esta vacio
+  Total === 0 ? totalCompra.innerHTML = `<i class='bx bxs-cart' style='color:#01f603'></i> VACIO` :
     totalCompra.innerHTML = `Total a pagar $${Total}`;
   contador.innerText = carrito.length;
   guardarDatos();
 }
-
 //creo una función para borrar los productos del carrito
 function borrarItemCarrito(e) {
   const buttonDelete = e.target;
@@ -195,12 +204,45 @@ function sumaCantidad(e) {
 //creo una funcion para limpiar todo el carrito
 function limpiarCarrito() {
   vaciarCarrito.addEventListener('click', () => {
-
     carrito = [];
-    agregarCarrito() 
+    agregarCarrito()
   })
 }
 limpiarCarrito()
+
+function simularCompra() {
+  compraSimulada.addEventListener("click", () => {
+
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: false
+    })
+
+    swalWithBootstrapButtons.fire({
+      title: '¿Desea finalizar la comrpa?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Pagar',
+      cancelButtonText: 'Seguir comprando',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        carrito = [];
+        agregarCarrito()
+
+        swalWithBootstrapButtons.fire(
+          'muchas gracias por su compra',
+          'Puedes seguir comprando',
+          'success'
+        )
+      }
+    })
+  })
+}
+simularCompra()
 
 
 //guardo los datos de mi carrito en el localStorage
