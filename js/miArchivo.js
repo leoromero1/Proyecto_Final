@@ -50,9 +50,6 @@ cargarJson(() => {
       let expReg = new RegExp(texto, "i"); //con expresiones regulares hago que no distinga mayúsculas o minúsclas
       for (let i = 0; i < filtro.length; i++) {
         let valor = filtro[i];
-        if (filtro[i] !== valor) {
-          innerText.p
-        }
         expReg.test(valor.innerText)
           ? valor.classList.remove("ocultar")
           : valor.classList.add("ocultar");
@@ -189,12 +186,12 @@ function sumaCantidad(e) {
   });
 }
 
+//creo una funcion para limpiar todo el carrito
 function limpiarCarrito() {
   vaciarCarrito.addEventListener('click', () => {
 
     carrito = [];
-    agregarCarrito()
-    
+    agregarCarrito() 
   })
 }
 limpiarCarrito()

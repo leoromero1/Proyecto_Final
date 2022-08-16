@@ -337,7 +337,7 @@ body.oscuro .cart:hover {
 }
 .footer{
     background-color: var(--colorFondo);
-    padding: 20px 0;
+    margin-top: 20px;
 }
 .footer-cols{
     width: 30%;
@@ -414,6 +414,12 @@ body.oscuro .cart:hover {
     }
     .carrito{
         width: 100%;
+    }
+    .act-carrito .carrito {
+        transform: translateY(70px);
+    }
+    .nav__menu{
+        position: fixed;
     }
 
 }
