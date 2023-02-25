@@ -25,7 +25,6 @@ function animarArrow(){
 
 function abrirMenu(){
   menuResponsive.addEventListener("click", (e) =>{
-    console.log('click');
     const res = document.querySelector("body");
     res.classList.toggle('con-menu')
 
@@ -34,7 +33,6 @@ function abrirMenu(){
 
 function resCarrito() {
   carritoRes.addEventListener("click",(e)=>{
-    console.log('click');
     const act = document.querySelector("body");
     act.classList.toggle('act-carrito')
   })

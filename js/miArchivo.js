@@ -43,8 +43,11 @@ cargarJson(() => {
   botonesClick.forEach((btns) => {
     btns.addEventListener("click", seleccionarProductos);
   });
-  /* creo una función "buscador de productos" adentro de cargarJson, porque nose porqué si la dejo afuera no me la reconoce*/
-  function buscador() {
+ 
+  buscador();
+});
+/* creo una función "buscador de productos"*/
+ function buscador() {
     const filtro = document.querySelectorAll(".filtro");
     inputBuscar.addEventListener("keyup", (e) => {
       let texto = e.target.value;
@@ -58,9 +61,6 @@ cargarJson(() => {
       }
     });
   }
-  buscador();
-});
-
 //creo una función para que cada vez que hagan click se me agregue los item al carrito
 function seleccionarProductos(e) {
   const button = e.target;
@@ -82,7 +82,7 @@ function seleccionarProductos(e) {
     id: itemId,
     cantidad: 1,
   };
-  // console.log(productosSeleccionados);
+
   agregarProductosAlCarrito(productosSeleccionados); //llamo a una función y le mando como parámetro el objeto creado
 }
 
@@ -114,9 +114,10 @@ function agregarProductosAlCarrito(productosSeleccionados) {
 
   //pusheo al carrito los productos que se van seleccionando.
   carrito.push(productosSeleccionados);
-  // console.log(carrito,'carrito');
+ 
   agregarCarrito();
 }
+
 
 //agrego una funcion para ir pintando en el carrito los prodcutos que se van seleccionando
 function agregarCarrito() {
@@ -255,6 +256,5 @@ function guardarDatos() {
 window.onload = function () {
   const storage = JSON.parse(localStorage.getItem("carrito"));
   storage ? (carrito = storage) : "";
-
   agregarCarrito();
 };
