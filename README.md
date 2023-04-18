@@ -13,3 +13,7 @@ El carrito se maneja con una variable global "state" que contiene una propiedad 
 La funcionalidad de la página se realizó con funciones independientes para realizar cada acción y una función "updateState" para actualizar el estado y todos los elementos de la UI.
 
 La renderización de los elementos del DOM se realiza dinámicamente con funciones de renderizado que son llamadas con la carga inicial de la página y cada vez que se ejecuta "updateState".
+
+<h2>
+  <a href="https://leoromero1.github.io/Proyecto_Final/">Visitar</a>
+</h2>
